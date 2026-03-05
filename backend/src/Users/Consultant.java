@@ -20,23 +20,23 @@ public class Consultant extends User {
         this.userId = "CO-" + idCounter++;
     }
 
-  /* 
+    /* 
   public void manageAvailability(){
 
   }
-  */
+     */
+    public List<Booking> getPendingBookingRequests() {
+        return null;
+    }
 
-  public List<Booking> getPendingBookingRequests() {
-      return null;
-  }
-
-
-  // =========================================
-  // Booking management
-  // =========================================
+    // =========================================
+    // Booking management
+    // =========================================
     public void acceptBooking(Booking booking) {
 
-        if (booking == null) return;
+        if (booking == null) {
+            return;
+        }
 
         booking.confirm();  // State pattern transition
         bookings.add(booking);
@@ -46,7 +46,9 @@ public class Consultant extends User {
 
     public void rejectBooking(Booking booking) {
 
-        if (booking == null) return;
+        if (booking == null) {
+            return;
+        }
 
         booking.reject();
 
@@ -55,7 +57,9 @@ public class Consultant extends User {
 
     public void completeBooking(Booking booking) {
 
-        if (booking == null) return;
+        if (booking == null) {
+            return;
+        }
 
         booking.complete();
 
@@ -84,6 +88,10 @@ public class Consultant extends User {
 
     public boolean checkApproval() {
         return isApproved;
+    }
+
+    public void getServices() {
+
     }
 
 }
