@@ -33,16 +33,16 @@ public class Client extends User {
         this.bookings.remove(booking);
     }
 
-    public ArrayList<Booking> viewBookingHistory() {
+    public List<Booking> viewBookingHistory() {
         return this.bookings;
     }
 
     public void processPayment(Payment payment, PaymentStrategy strategy) {
-        payment.process(strategy); 
+        //payment(strategy); 
     }
 
-    public ArrayList<PaymentMethod> getPaymentMethods() {
-        return paymentMethods;
+    public List<PaymentMethod> getPaymentMethods() {
+        return this.paymentMethods;
     }
 
     public void addPaymentMethod(PaymentMethod payMethod){
