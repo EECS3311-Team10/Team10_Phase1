@@ -8,7 +8,7 @@ public class DiscountStrategy implements PricingStrategy{
     private final double discountRate = 0.10;
 
     @Override
-    public double calculatePrice(Service service, Booking booking) {
+    public double calculatePrice(Service service) {
         return service.getPrice() * (1 - discountRate); 
     }
 }
