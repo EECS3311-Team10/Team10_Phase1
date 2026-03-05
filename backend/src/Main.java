@@ -1,11 +1,10 @@
 
 import Users.*;
-
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import service.*;
-import java.time.*;
 import payment.PaymentMethod;
+import service.*;
 
 // - Client has: requestBooking(Booking), cancelBooking(Booking), viewBookingHistory(), getPaymentMethods(), addPaymentMethod(...)
 // - Client has: processPayment(Payment, PaymentStrategy) and viewPaymentHistory()
@@ -285,9 +284,9 @@ public class Main {
                 YearMonth expiryDate;
                 expiryDate = YearMonth.parse(exp, formatter);
 
-                payment.PaymentMethod pm = new payment.DebitCard(cardNo, holder, expiryDate, cvv);
-                client.addPaymentMethod(pm);
-                System.out.println("Debit card added.");
+                //payment.PaymentMethod pm = new payment.DebitCard(cardNo, holder, expiryDate, cvv);
+                client.addPaymentMethod("DEBIT", cardNo, expiryDate, cvv, holder);
+                //System.out.println("Debit card added.");
             } else if (choice == 3) {
                 System.out.print("Card number: ");
                 String cardNo = scanner.nextLine().trim();
@@ -302,16 +301,16 @@ public class Main {
 
                 YearMonth expiryDate;
                 expiryDate = YearMonth.parse(exp, formatter);
-                payment.PaymentMethod pm = new payment.CreditCard(cardNo, holder, expiryDate, cvv);
-                client.addPaymentMethod(pm);
-                System.out.println("Credit card added.");
+                //payment.PaymentMethod pm = new payment.CreditCard(cardNo, holder, expiryDate, cvv);
+                client.addPaymentMethod("CREDIT", cardNo, expiryDate, cvv, holder);
+                //System.out.println("Credit card added.");
             } else if (choice == 4) {
                 System.out.print("PayPal email: ");
                 String email = scanner.nextLine().trim();
 
-                payment.PaymentMethod pm = new payment.PayPal(email);
-                client.addPaymentMethod(pm);
-                System.out.println("PayPal added.");
+                //payment.PaymentMethod pm = new payment.PayPal(email);
+                client.addPaymentMethod(email);
+                //System.out.println("PayPal added.");
             } else if (choice == 5) {
                 System.out.print("Account name: ");
                 String name = scanner.nextLine().trim();
@@ -322,9 +321,9 @@ public class Main {
                 System.out.print("Routing number: ");
                 String routingNo = scanner.nextLine().trim();
 
-                payment.PaymentMethod pm = new payment.BankTransfer(accountNo, address, name, routingNo);
-                client.addPaymentMethod(pm);
-                System.out.println("Bank transfer added.");
+                //payment.PaymentMethod pm = new payment.BankTransfer(accountNo, address, name, routingNo);
+                client.addPaymentMethod(accountNo, address, name, routingNo);
+                //System.out.println("Bank transfer added.");
             } else if (choice == 6) {
                 return;
             } else {
