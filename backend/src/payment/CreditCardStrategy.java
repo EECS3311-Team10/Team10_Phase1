@@ -8,7 +8,6 @@ public class CreditCardStrategy implements PaymentStrategy {
     
     @Override
     public void pay() {
-        // Implement payment logic using credit card details
         System.out.println("Processing payment with credit card: " + creditCard);
     }
 
@@ -16,7 +15,7 @@ public class CreditCardStrategy implements PaymentStrategy {
     public PaymentMethod getPaymentMethod() {
         return creditCard;
     }
-    
+
     @Override
     public void simPaymentProcessing() {
         // Simulate payment processing for credit card
