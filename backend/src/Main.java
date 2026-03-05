@@ -4,6 +4,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import service.*;
 import java.time.*;
+import payment.PaymentMethod;
 
 // - Client has: requestBooking(Booking), cancelBooking(Booking), viewBookingHistory(), getPaymentMethods(), addPaymentMethod(...)
 // - Client has: processPayment(Payment, PaymentStrategy) and viewPaymentHistory()
@@ -278,12 +279,14 @@ public class Main {
             int choice = readInt(scanner);
 
             if (choice == 1) {
-                List<?> methods = client.getPaymentMethods();
+                List<PaymentMethod> methods = client.getPaymentMethods();
                 if (methods == null || methods.isEmpty()) {
                     System.out.println("No payment methods.");
                 } else {
                     System.out.println("--- Your Payment Methods ---");
-                    for (Object m : methods) System.out.println(m);
+                    for (PaymentMethod m : methods) {
+                        m.getPaymentDetails(); // or override toString in your PaymentMethod classes
+                    }
                 }
             }
 
