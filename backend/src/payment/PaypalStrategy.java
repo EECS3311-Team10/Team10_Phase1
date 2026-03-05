@@ -9,7 +9,6 @@ public class PaypalStrategy implements PaymentStrategy {
     
     @Override
     public void pay() {
-        // Implement PayPal payment logic here
         System.out.println("Processing payment through PayPal for " + payPal.getPaymentDetails());
     }
 
