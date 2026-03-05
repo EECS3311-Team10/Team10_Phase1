@@ -59,4 +59,15 @@ public class Payment {
     public void setTransactionID(String transactionID) {
         this.transactionID = transactionID;
     }
+
+    @Override
+    public String toString() {
+        return "Payment{"
+                + "paymentID='" + paymentID + " "
+                + ", price=" + price
+                + ", status=" + status
+                + ", timestamp=" + timestamp
+                + ", transactionID='" + transactionID + " "
+                + '}';
+    }
 }
