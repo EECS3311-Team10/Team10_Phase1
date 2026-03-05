@@ -1,8 +1,8 @@
 package Users;
 import bookingstates.*;
-import payment.*;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+import payment.*;
 
 public class Client extends User {
 
@@ -16,13 +16,7 @@ public class Client extends User {
         this.setRole("Client");
         this.paymentMethods = new ArrayList<>();
         this.bookings = new ArrayList<>();
-        this.userId = "CL-" + idCounter;
-        incrementCounter();
-        
-    }
-
-     public static void incrementCounter(){
-        idCounter++;
+        this.userId = "CL-" + idCounter++;
     }
 
     public void requestBooking(Booking booking) {
