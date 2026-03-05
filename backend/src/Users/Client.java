@@ -10,12 +10,14 @@ public class Client extends User {
     
     private List<PaymentMethod> paymentMethods;
     private List<Booking> bookings;
+    private List<Payment> paymentHistory;
 
     public Client(String name, String email, String phone) {
         super(name, email, phone, "Client"); 
         this.setRole("Client");
         this.paymentMethods = new ArrayList<>();
         this.bookings = new ArrayList<>();
+        this.paymentHistory = new ArrayList<>();
         this.userId = "CL-" + idCounter++;
     }
 
@@ -43,9 +45,11 @@ public class Client extends User {
         this.paymentMethods.add(payMethod);
 
     }
+    public void addPayment(Payment payment){
+        this.paymentHistory.add(payment);
+    }
 
     public List<?> viewPaymentHistory() {
-        // Implement logic to view payment history
-        return new ArrayList<>(); // Placeholder - replace with actual payment history
+        return this.paymentHistory; 
     }
 }
