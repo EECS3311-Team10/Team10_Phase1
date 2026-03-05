@@ -1,12 +1,13 @@
 package payment;
 
 public class PayPalStrategy implements PaymentStrategy {
+
     private PayPal payPal;
-    
+
     public PayPalStrategy(PayPal payPal) {
         this.payPal = payPal;
     }
-    
+
     @Override
     public void pay() {
         System.out.println("Processing payment through PayPal for " + payPal.getPaymentDetails());
