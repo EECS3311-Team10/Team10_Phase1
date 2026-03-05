@@ -419,8 +419,9 @@ public class Main {
 
         // if your booking state machine should advance:
         // booking.processPayment();
-
+        client.addPayment(payment);
         System.out.println("Payment processed for booking: " + booking.getBookingID());
+        
     }
 
     private static payment.PaymentMethod choosePaymentMethod(Scanner scanner, Users.Client client) {
