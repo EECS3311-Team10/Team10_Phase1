@@ -25,11 +25,12 @@ public class Consultant extends User {
 
   }
   */
+
   public List<Booking> getPendingBookingRequests() {
       return null;
   }
 
-  
+
   // =========================================
   // Booking management
   // =========================================
