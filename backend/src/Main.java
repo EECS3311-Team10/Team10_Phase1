@@ -359,34 +359,26 @@ public class Main {
         bookingstates.Booking booking = (bookingstates.Booking) bookings.get(pick);
 
         // choose payment strategy
-        System.out.println("\nChoose Payment Strategy:");
-        System.out.println("1) Credit Card");
-        System.out.println("2) Debit Card");
-        System.out.println("3) PayPal");
-        System.out.println("4) Bank Transfer");
-        System.out.print("Choice: ");
-        int methodChoice = readInt(scanner);
+        payment.PaymentMethod pm = choosePaymentMethod(scanner, client);
 
-        payment.PaymentMethod pm = choosePaymentMethod(scanner, client); // must return matching subclass
+        payment.PaymentStrategy strategy;
 
-        payment.PaymentStrategy strategy = null;
-
-        switch (methodChoice) {
-            case 1 ->
-                strategy = new payment.CreditCardStrategy((payment.CreditCard) pm);
-            case 2 ->
-                strategy = new payment.DebitCardStrategy((payment.DebitCard) pm);
-            case 3 ->
-                strategy = new payment.PayPalStrategy((payment.PayPal) pm);
-            case 4 ->
-                strategy = new payment.BankTransferStrategy((payment.BankTransfer) pm);
-            default -> {
-                System.out.println("Invalid choice.");
-                return;
-            }
+        if (pm instanceof payment.CreditCard) {
+            strategy = new payment.CreditCardStrategy((payment.CreditCard) pm);
         }
-
-        // Create Payment object (adjust constructor to your Payment.java)
+        else if (pm instanceof payment.DebitCard) {
+            strategy = new payment.DebitCardStrategy((payment.DebitCard) pm);
+        }
+        else if (pm instanceof payment.PayPal) {
+            strategy = new payment.PayPalStrategy((payment.PayPal) pm);
+        }
+        else if (pm instanceof payment.BankTransfer) {
+            strategy = new payment.BankTransferStrategy((payment.BankTransfer) pm);
+        }
+        else {
+            System.out.println("Invalid payment method.");
+            return;
+        }// Create Payment object (adjust constructor to your Payment.java)
         String paymentID = "PM-" + System.currentTimeMillis();
         String txID = "TX-" + UUID.randomUUID();
 
