@@ -25,75 +25,40 @@ public class Consultant extends User {
 
   }
      */
-    public List<Booking> getPendingBookingRequests() {
-        return null;
-    }
-
-    /* 
-  public boolean acceptBooking(Booking booking){
-    if (checkApproval() == false) {
-      // inform that consultant is not approved
-      return true;
-    }
-  }
-    
-    if(booking.getState() != RequestedState) { // fix  this
-      throw new IllegalStateException(
-        "Can only accept Bookings in REQUESTED state" );
-    }
-
-    booking.confirm();
-    this.bookings.add(booking);
-
-    // update the consultant stats
-
-    // notification
-
-    return true;
+  public List<Booking> getPendingBookingRequests() {
+      return null;
   }
 
-  public boolean rejectBooking(Booking booking){
-    if (checkApproval() == false) {
-      // inform that consultant is not approved
-      return true;
-    }
-  }
-    if(booking.getState() != RequestedState) { // fix  this
-      throw new IllegalStateException(
-        "Can only reject Bookings in REQUESTED state" );
-    }
+  // =========================================
+  // Booking management
+  // =========================================
+    public void acceptBooking(Booking booking) {
 
-    booking.reject();
+        if (booking == null) return;
 
-    // update the consultant stats
+        booking.confirm();  // State pattern transition
+        bookings.add(booking);
 
-    // notification
-
-    return true;
-  }
-     */
-    public void addService() {
-
+        System.out.println("Booking accepted: " + booking.getBookingID());
     }
 
-    public void removeService(String serviceID) {
+    public void rejectBooking(Booking booking) {
 
+        if (booking == null) return;
+
+        booking.reject();
+
+        System.out.println("Booking rejected: " + booking.getBookingID());
     }
 
-    public ArrayList<Service> getServices() {
-        return services;
+    public void completeBooking(Booking booking) {
+
+        if (booking == null) return;
+
+        booking.complete();
+
+        System.out.println("Booking completed: " + booking.getBookingID());
     }
-
-    public boolean isAvailable() {
-
-        return true;
-    }
-
-    /* 
-    public void blockTimeSlot() {
-
-    }
-     */
 
     //should make a new class for registrations
     public void register() {
