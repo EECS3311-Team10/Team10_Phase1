@@ -2,6 +2,7 @@ package Users;
 import bookingstates.*;
 import service.Service;
 import java.util.*;
+
 public class Consultant extends User{
 
   private static int idCounter = 1;
@@ -10,8 +11,8 @@ public class Consultant extends User{
   private ArrayList<Booking> bookings;
   private ArrayList<Service> services;
 
-  public Consultant(){
-    super(); 
+  public Consultant(String name, String email, String phone) {
+    super(name, email, phone); 
     this.setRole("Consultant");
     this.bookings = new ArrayList<>();
     this.services = new ArrayList<>();
@@ -31,12 +32,13 @@ public class Consultant extends User{
   public List<Booking> getPendingBookingRequests() {
     return null;
   }
-
+/* 
   public boolean acceptBooking(Booking booking){
     if (checkApproval() == false) {
       // inform that consultant is not approved
       return true;
     }
+  }
     
     if(booking.getState() != RequestedState) { // fix  this
       throw new IllegalStateException(
@@ -58,7 +60,7 @@ public class Consultant extends User{
       // inform that consultant is not approved
       return true;
     }
-    
+  }
     if(booking.getState() != RequestedState) { // fix  this
       throw new IllegalStateException(
         "Can only reject Bookings in REQUESTED state" );
@@ -72,7 +74,7 @@ public class Consultant extends User{
 
     return true;
   }
-
+*/
   public void addService(){
     
   }
