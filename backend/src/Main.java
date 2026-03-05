@@ -2,25 +2,22 @@ import Users.*;
 
 public class Main {
     public static void main(String[] args) {
-        // Create two Clients
-        Client c1 = new Client("Alice", "alice@email.com", "555-0101");
-        Client c2 = new Client("Bob", "bob@email.com", "555-0102");
+        // 1. Create a Registry to hold our users
+        UserRegistry registry = new UserRegistry();
 
-        // Create one Consultant
-        Consultant co1 = new Consultant("Charlie", "charlie@email.com", "555-0201");
+        // 2. Pre-load ("Seed") the users
+        // These will automatically get IDs: CL-1, CO-1, and AD-1
+        Client defaultClient = new Client("John Doe", "john@email.com", "555-0001");
+        Consultant defaultConsultant = new Consultant("Jane Smith", "jane@email.com", "555-0002");
+        Admin defaultAdmin = new Admin("System Admin", "admin@firm.com", "555-9999");
 
-        // Create one Admin
-        // (Assuming you followed the same pattern for Admin)
-        Admin a1 = new Admin("Dana", "dana@email.com", "555-0301");
+        // 3. Add them to the registry
+        registry.addUser(defaultClient);
+        registry.addUser(defaultConsultant);
+        registry.addUser(defaultAdmin);
 
-        System.out.println("--- User ID Verification ---");
-        System.out.println("Client 1: " + c1.getUserID()); // Should be CL-1
-        System.out.println("Client 2: " + c2.getUserID()); // Should be CL-2
-        System.out.println("Consultant 1: " + co1.getUserID()); // Should be CO-1
-        System.out.println("Admin 1: " + a1.getUserID()); // Should be AD-1
-
-        // Verify getters from parent User class
-        System.out.println("\n--- Data Verification ---");
-        System.out.println("Name for " + c1.getUserID() + ": " + c1.getName());
+        // 4. Start the CLI and pass it the registry so it can "find" these users
+        ConsultancyApp app = new ConsultancyApp();
+        app.start();
     }
 }
