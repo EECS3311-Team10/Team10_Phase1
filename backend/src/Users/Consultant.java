@@ -20,15 +20,16 @@ public class Consultant extends User {
         this.userId = "CO-" + idCounter++;
     }
 
-    /* 
+  /* 
   public void manageAvailability(){
 
   }
-     */
+  */
   public List<Booking> getPendingBookingRequests() {
       return null;
   }
 
+  
   // =========================================
   // Booking management
   // =========================================
@@ -60,21 +61,24 @@ public class Consultant extends User {
         System.out.println("Booking completed: " + booking.getBookingID());
     }
 
-    //should make a new class for registrations
+    // =========================================
+    // Registration
+    // =========================================
     public void register() {
-
+        this.isApproved = false;
+        System.out.println("Consultant registration submitted.");
     }
 
     // called by Admin
     public void approve() {
         this.isApproved = true;
-
-        //notification implemenentation
+        System.out.println("Consultant approved.");
     }
 
     // called by Admin
     public void reject() {
         this.isApproved = false;
+        System.out.println("Consultant rejected.");
     }
 
     public boolean checkApproval() {
