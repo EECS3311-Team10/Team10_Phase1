@@ -16,4 +16,13 @@ public class DebitCardStrategy implements PaymentStrategy {
         System.out.println("Processing debit card payment...");
     }
     
+    @Override
+    public PaymentMethod getPaymentMethod() {
+        return;
+    }
+    @Override
+    public void simPaymentProcessing() {
+        // Simulate payment processing for debit card
+        System.out.println("Simulating debit card payment processing...");
+    }
 }
