@@ -1,9 +1,9 @@
 package payment;
 
-public class PayPalStrategy implements PaymentStrategy {
+public class PaypalStrategy implements PaymentStrategy {
     private PayPal payPal;
     
-    public PayPalStrategy(PayPal payPal) {
+    public PaypalStrategy(PayPal payPal) {
         this.payPal = payPal;
     }
     
@@ -24,3 +24,4 @@ public class PayPalStrategy implements PaymentStrategy {
     }
 
 }
+
