@@ -1,17 +1,18 @@
 package payment;
 
-public class CreditCard extends PaymentMethod{
+public class CreditCard extends PaymentMethod {
+
     private String cardNumber;
     private String cardHolderName;
     private String expiryDate;
-    private final String cvv;
+    private final String CVV;
 
-    public CreditCard(String cardNumber, String cardHolderName, String expiryDate, String cvv) {
+    public CreditCard(String cardNumber, String cardHolderName, String expiryDate, String CVV) {
         super("Credit Card");
         this.cardNumber = cardNumber;
         this.cardHolderName = cardHolderName;
         this.expiryDate = expiryDate;
-        this.cvv = cvv;
+        this.CVV = CVV;
     }
 
     @Override
@@ -25,10 +26,10 @@ public class CreditCard extends PaymentMethod{
             validated = false;
         }
         // Verify expiryDate >> current date
-        
 
         return validated;
     }
+
     @Override
     public String getPaymentDetails() {
         return "Credit Card: " + cardNumber;
