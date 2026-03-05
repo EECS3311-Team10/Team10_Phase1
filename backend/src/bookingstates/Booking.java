@@ -64,5 +64,15 @@ public class Booking {
         return price;
     }
 
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "bookingID='" + bookingID + '\'' +
+                ", state=" + state.getClass().getSimpleName() +
+                ", requestedTime=" + requestedTime +
+                ", scheduledTime=" + scheduledTime +
+                ", price=" + price +
+                '}';
+    }
 }
 
