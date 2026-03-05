@@ -12,5 +12,16 @@ public class BankTransferStrategy implements PaymentStrategy {
         // Implement payment logic using bank transfer
         System.out.println("Processing payment through bank transfer...");
     }
+    
+    @Override
+    public PaymentMethod getPaymentMethod() {
+        return bankTransfer;
+    }
+
+    @Override
+    public void simPaymentProcessing() {
+        // Simulate payment processing for bank transfer
+        System.out.println("Simulating bank transfer payment processing...");
+    }
 
 }
