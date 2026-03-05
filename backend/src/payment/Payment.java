@@ -1,17 +1,19 @@
 package payment;
+
 import java.time.LocalDateTime;
 
 public class Payment {
+
     private String paymentID;
-    private double amount;
+    private double price;
     private PaymentStatus status;
     private LocalDateTime timestamp;
     private String transactionID;
 
     // Constructor
-    public Payment(String paymentID, double amount, PaymentStatus status, LocalDateTime timestamp, String transactionID) {
+    public Payment(String paymentID, double price, PaymentStatus status, LocalDateTime timestamp, String transactionID) {
         this.paymentID = paymentID;
-        this.amount = amount;
+        this.price = price;
         this.status = status;
         this.timestamp = timestamp;
         this.transactionID = transactionID;
@@ -26,12 +28,12 @@ public class Payment {
         this.paymentID = paymentID;
     }
 
-    public double getAmount() {
-        return amount;
+    public double getPrice() {
+        return price;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public PaymentStatus getStatus() {
