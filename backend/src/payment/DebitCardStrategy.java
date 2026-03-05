@@ -1,7 +1,7 @@
 package payment;
 
 public class DebitCardStrategy implements PaymentStrategy {
-    private int cardNumber;
+    private final int cardNumber;
     private String cardHolderName;
     private String expiryDate;
     public DebitCardStrategy(int cardNumber, String cardHolderName, String expiryDate) {
