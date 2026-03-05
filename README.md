@@ -11,6 +11,7 @@ Design patterns used and where <br>
 Singleton - Policy Manager <br>
 State Pattern - Booking States <br>
 Strategy Patter - Payment Strategy, Pricing strategy <br>
+Builder Pattern: The NotificationBuilder <br>
 
 How to run - run the Main class using any java programming software <br>
 
