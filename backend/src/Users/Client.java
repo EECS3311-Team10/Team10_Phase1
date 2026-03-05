@@ -12,7 +12,7 @@ public class Client extends User {
     private List<Booking> bookings;
 
     public Client(String name, String email, String phone) {
-        super(name, email, phone); 
+        super(name, email, phone, "Client"); 
         this.setRole("Client");
         this.paymentMethods = new ArrayList<>();
         this.bookings = new ArrayList<>();
