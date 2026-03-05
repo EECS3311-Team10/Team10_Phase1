@@ -1,6 +1,7 @@
 ## Team 10 Phase 1
 
 Architecture overview <br>
+The system follows a Component-Based Architecture with a strict separation of concerns between user management, service scheduling, and financial transactions. <br>
 
 Language: Java (JDK 25) <br>
 Version Control: GitHub (with Team Branch Protection) <br>
