@@ -4,6 +4,7 @@ Architecture overview <br>
 
 Language: Java (JDK 25) <br>
 Version Control: GitHub (with Team Branch Protection) <br>
+Design Tools: Draw.io (UML 2.5 standard) <br>
 
 Design patterns used and where <br>
 
