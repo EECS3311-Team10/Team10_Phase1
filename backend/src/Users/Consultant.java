@@ -90,4 +90,8 @@ public class Consultant extends User {
         return isApproved;
     }
 
+    public List<Service> getServices() {
+        return this.services;
+    }
+
 }
