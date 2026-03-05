@@ -99,7 +99,7 @@ public class Client extends User {
         this.paymentHistory.add(payment);
     }
 
-    public List<?> viewPaymentHistory() {
+    public List<Payment> viewPaymentHistory() {
         return this.paymentHistory;
     }
 }
