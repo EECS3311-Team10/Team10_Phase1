@@ -5,13 +5,10 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class FreeCancellationPolicy implements CancellationPolicy {
-
+    // Free cancellation policy: allows free cancellation if the booking is canceled at least 48 hours before the scheduled time
     @Override
     public boolean isAllowed(Booking booking) {
-        //calculates if you are eligable based off scheduled time
-        long hoursUntilBooking =
-            Duration.between(LocalDateTime.now(), booking.getScheduledTime()).toHours();
-
-        return hoursUntilBooking <= 24;
+        long hoursUntilBooking = Duration.between(LocalDateTime.now(), booking.getScheduledTime()).toHours();
+        return hoursUntilBooking <= 48;
     }
 }
