@@ -1,23 +1,24 @@
 package service;
 
 public class Service {
-    private String serviceID;
+    private static int CounterID = 1;
+    private int serviceID;
     private String name;
     private String description;
     private double price;
 
-    public Service(String serviceID, String name, String description, double price) {
-        this.serviceID = serviceID;
+    public Service(String name, String description, double price) {
+        this.serviceID = CounterID++;
         this.name = name;
         this.description = description;
         this.price = price;
     }
 
-    public String getServiceID() {
+    public int getServiceID() {
         return serviceID;
     }
 
-    public void setServiceID(String serviceID) {
+    public void setServiceID(int serviceID) {
         this.serviceID = serviceID;
     }
 
