@@ -12,4 +12,14 @@ public class CreditCardStrategy implements PaymentStrategy {
         System.out.println("Processing payment with credit card: " + creditCard);
     }
 
+    @Override
+    public PaymentMethod getPaymentMethod() {
+        return creditCard;
+    }
+    
+    @Override
+    public void simPaymentProcessing() {
+        // Simulate payment processing for credit card
+        System.out.println("Simulating credit card payment processing...");
+    }
 }
