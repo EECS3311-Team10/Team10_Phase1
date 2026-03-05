@@ -23,11 +23,7 @@ public class CreditCard extends PaymentMethod{
             validated = false;
         }
         //verify expiryDate >> current date
-
-        //verify cardHolderName == client.name
-        if (!this.cardHolderName.equals(Client.getName())) {
-            validated = false;
-        }
+        
 
         return validated;
     }
