@@ -1,23 +1,21 @@
 package payment;
 
 public class PaypalStrategy implements PaymentStrategy {
-    private final String email;
-    private final String password;
+    private PayPal payPal;
     
-    public PaypalStrategy(String email, String password) {
-        this.email = email;
-        this.password = password;
+    public PaypalStrategy(PayPal payPal) {
+        this.payPal = payPal;
     }
     
     @Override
     public void pay() {
         // Implement PayPal payment logic here
-        System.out.println("Processing payment through PayPal for " + email);
+        System.out.println("Processing payment through PayPal for " + payPal.getPaymentDetails());
     }
 
     @Override
     public PaymentMethod getPaymentMethod() {
-        return null;
+        return payPal;
     }
 
     @Override
