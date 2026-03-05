@@ -2,7 +2,7 @@
 
 Architecture overview <br>
 
-### Design patterns used and where <br>
+Design patterns used and where <br>
 
 Singleton - Policy Manager <br>
 State Pattern - Booking States <br>
