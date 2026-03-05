@@ -1,10 +1,10 @@
 package payment;
 
 public class BankTransfer extends PaymentMethod{
-    private final String accountNumber;
+    private String accountNumber;
     private String address;
-    private final String accountName;
-    private final String routingNumber;
+    private String accountName;
+    private String routingNumber;
 
     public BankTransfer(String accountNumber, String address, String accountName, String routingNumber) {
         super("Bank Transfer");

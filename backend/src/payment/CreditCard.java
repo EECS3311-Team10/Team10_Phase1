@@ -4,7 +4,7 @@ public class CreditCard extends PaymentMethod{
     private String cardNumber;
     private String cardHolderName;
     private String expiryDate;
-    private final String cvv;
+    private String cvv;
 
     public CreditCard(String cardNumber, String cardHolderName, String expiryDate, String cvv) {
         super("Credit Card");

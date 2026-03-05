@@ -2,10 +2,10 @@ package bookingstates;
 import java.time.LocalDateTime;
 
 public class Booking {
-    private final String bookingID;
+    private String bookingID;
     private BookingState state;
-    private final LocalDateTime requestedTime;
-    private final LocalDateTime scheduledTime;
+    private LocalDateTime requestedTime;
+    private LocalDateTime scheduledTime;
     private double price;
 
     public Booking(String bookingID, LocalDateTime requestedTime, LocalDateTime scheduledTime, double price) {
