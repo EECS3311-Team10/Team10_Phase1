@@ -7,17 +7,13 @@ public class Admin extends User {
     public Admin(String name, String email, String phone) {
         super(name, email, phone); 
         this.setRole("Admin");
-        this.userId = "AD-" + idCounter;
-        incrementCounter();
+        this.userId = "AD-" + idCounter++;
     }
 
     public boolean reviewConsultantRequest(){
         return true;
     }
 
-   public static void incrementCounter(){
-        idCounter++;
-    }
  
     public void defineSystemPolicies(){
 
