@@ -43,4 +43,9 @@ public class Client extends User {
         this.paymentMethods.add(payMethod);
 
     }
+
+    public List<?> viewPaymentHistory() {
+        // Implement logic to view payment history
+        return new ArrayList<>(); // Placeholder - replace with actual payment history
+    }
 }
