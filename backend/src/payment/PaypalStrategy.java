@@ -1,8 +1,8 @@
 package payment;
 
 public class PaypalStrategy implements PaymentStrategy {
-    private String email;
-    private String password;
+    private final String email;
+    private final String password;
     
     public PaypalStrategy(String email, String password) {
         this.email = email;
@@ -13,6 +13,17 @@ public class PaypalStrategy implements PaymentStrategy {
     public void pay() {
         // Implement PayPal payment logic here
         System.out.println("Processing payment through PayPal for " + email);
+    }
+
+    @Override
+    public PaymentMethod getPaymentMethod() {
+        return ;
+    }
+
+    @Override
+    public void simPaymentProcessing() {
+        // Simulate payment processing for PayPal
+        System.out.println("Simulating PayPal payment processing...");
     }
 
 }
