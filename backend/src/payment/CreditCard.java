@@ -14,15 +14,15 @@ public class CreditCard extends PaymentMethod{
 
     @Override
     public boolean validate() {
-        // Implement validation logic for credit card
+        // Validation logic for credit card
 
         boolean validated = true;
-        //verify card number length = 16
+        // Verify card number length = 16
         String s = String.valueOf(this.cardNumber);
         if (s.length() != 16) {
             validated = false;
         }
-        //verify expiryDate >> current date
+        // Verify expiryDate >> current date
         
 
         return validated;
