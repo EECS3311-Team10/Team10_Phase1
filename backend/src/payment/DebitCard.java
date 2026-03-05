@@ -1,12 +1,15 @@
 package payment;
 
-public class DebitCard extends PaymentMethod{
+import java.time.*;
+
+public class DebitCard extends PaymentMethod {
+
     private String cardNumber;
     private String cardHolderName;
-    private String expiryDate;
+    private LocalDate expiryDate;
     private String cvv;
 
-    public DebitCard(String cardNumber, String cardHolderName, String expiryDate, String cvv) {
+    public DebitCard(String cardNumber, String cardHolderName, LocalDate expiryDate, String cvv) {
         super("Debit Card");
         this.cardNumber = cardNumber;
         this.cardHolderName = cardHolderName;
@@ -25,9 +28,13 @@ public class DebitCard extends PaymentMethod{
             validated = false;
         }
         //verify expiryDate >> current date
-        
+        if (expiryDate.isBefore(LocalDate.now())) {
+            validated = false;
+        }
+
         return validated;
     }
+
     @Override
     public String getPaymentDetails() {
         return "Debit Card: " + cardNumber;

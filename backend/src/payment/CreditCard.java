@@ -1,13 +1,15 @@
 package payment;
 
+import java.time.*;
+
 public class CreditCard extends PaymentMethod {
 
     private String cardNumber;
     private String cardHolderName;
-    private String expiryDate;
+    private LocalDate expiryDate;
     private final String CVV;
 
-    public CreditCard(String cardNumber, String cardHolderName, String expiryDate, String CVV) {
+    public CreditCard(String cardNumber, String cardHolderName, LocalDate expiryDate, String CVV) {
         super("Credit Card");
         this.cardNumber = cardNumber;
         this.cardHolderName = cardHolderName;
@@ -26,6 +28,9 @@ public class CreditCard extends PaymentMethod {
             validated = false;
         }
         // Verify expiryDate >> current date
+        if (expiryDate.isBefore(LocalDate.now())) {
+            validated = false;
+        }
 
         return validated;
     }
