@@ -1,3 +1,4 @@
+
 import Users.*;
 
 import java.time.format.DateTimeFormatter;
@@ -10,7 +11,6 @@ import payment.PaymentMethod;
 // - Client has: processPayment(Payment, PaymentStrategy) and viewPaymentHistory()
 // - Booking has: getBookingID(), getScheduledTime(), getPrice() + state actions (confirm/reject/cancel/processPayment/complete) if you want to use them
 // If method names differ, just rename the calls inside the menu handlers.
-
 public class Main {
 
     public static void main(String[] args) {
@@ -90,9 +90,9 @@ public class Main {
     // Client Menu (✅ “finish all the booking choices”)
     // =========================================================
     public static void runClientMenu(Scanner scanner,
-                                    Client client,
-                                    List<Service> services,
-                                    Consultant consultant) {
+            Client client,
+            List<Service> services,
+            Consultant consultant) {
 
         while (true) {
 
@@ -101,9 +101,7 @@ public class Main {
 
             if (choice == 1) {
                 browseServices(services);
-            }
-
-            else if (choice == 2) {
+            } else if (choice == 2) {
                 // View Booking History
                 System.out.println("\n--- Booking History ---");
                 List<?> bookings = client.viewBookingHistory();
@@ -114,29 +112,19 @@ public class Main {
                         System.out.println(b);
                     }
                 }
-            }
-
-            else if (choice == 3) {
+            } else if (choice == 3) {
                 // Manage Payment Methods (add/list/set default)
                 managePaymentMethods(scanner, client);
-            }
-
-            else if (choice == 4) {
+            } else if (choice == 4) {
                 // Cancel Booking
                 cancelBookingFlow(scanner, client);
-            }
-
-            else if (choice == 5) {
+            } else if (choice == 5) {
                 // Request Booking
                 requestBookingFlow(scanner, client, services, consultant);
-            }
-
-            else if (choice == 6) {
+            } else if (choice == 6) {
                 // Process Payment
                 processPaymentFlow(scanner, client);
-            }
-
-            else if (choice == 7) {
+            } else if (choice == 7) {
                 // View Payment History
                 System.out.println("\n--- Payment History ---");
                 List<?> payments = client.viewPaymentHistory();
@@ -147,9 +135,7 @@ public class Main {
                         System.out.println(p);
                     }
                 }
-            }
-
-            else if (choice == 8) {
+            } else if (choice == 8) {
 
                 System.out.println("Are you sure you want to logout? (Y/N)");
                 String logoutChoice = scanner.nextLine().trim();
@@ -158,9 +144,7 @@ public class Main {
                     System.out.println("Logging out...");
                     break;
                 }
-            }
-
-            else {
+            } else {
                 System.out.println("Invalid choice.");
             }
         }
@@ -183,9 +167,9 @@ public class Main {
     // UC5 Request Booking
     // ---------------------------------------------------------
     private static void requestBookingFlow(Scanner scanner,
-                                          Client client,
-                                          List<Service> services,
-                                          Consultant consultant) {
+            Client client,
+            List<Service> services,
+            Consultant consultant) {
 
         System.out.println("\n--- Request a Booking ---");
         browseServices(services);
@@ -217,7 +201,6 @@ public class Main {
 
         // Optional: also notify consultant / add to their queue if you have that
         // consultant.receiveBookingRequest(booking); // rename if you have it
-
         System.out.println("Booking requested successfully:");
         System.out.println(booking);
     }
@@ -257,7 +240,6 @@ public class Main {
 
         // If your Booking uses state pattern and needs booking.cancel():
         // booking.cancel();
-
         System.out.println("Cancelled: " + booking.getBookingID());
     }
 
@@ -288,9 +270,7 @@ public class Main {
                         m.getPaymentDetails(); // or override toString in your PaymentMethod classes
                     }
                 }
-            }
-
-            else if (choice == 2) {
+            } else if (choice == 2) {
                 System.out.print("Card number: ");
                 String cardNo = scanner.nextLine().trim();
                 System.out.print("Card holder name: ");
@@ -301,16 +281,14 @@ public class Main {
                 String cvv = scanner.nextLine().trim();
 
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
-                
+
                 YearMonth expiryDate;
                 expiryDate = YearMonth.parse(exp, formatter);
-              
+
                 payment.PaymentMethod pm = new payment.DebitCard(cardNo, holder, expiryDate, cvv);
                 client.addPaymentMethod(pm);
                 System.out.println("Debit card added.");
-            }
-
-            else if (choice == 3) {
+            } else if (choice == 3) {
                 System.out.print("Card number: ");
                 String cardNo = scanner.nextLine().trim();
                 System.out.print("Card holder name: ");
@@ -321,24 +299,20 @@ public class Main {
                 String cvv = scanner.nextLine().trim();
 
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
-                
+
                 YearMonth expiryDate;
                 expiryDate = YearMonth.parse(exp, formatter);
                 payment.PaymentMethod pm = new payment.CreditCard(cardNo, holder, expiryDate, cvv);
                 client.addPaymentMethod(pm);
                 System.out.println("Credit card added.");
-            }
-
-            else if (choice == 4) {
+            } else if (choice == 4) {
                 System.out.print("PayPal email: ");
                 String email = scanner.nextLine().trim();
 
                 payment.PaymentMethod pm = new payment.PayPal(email);
                 client.addPaymentMethod(pm);
                 System.out.println("PayPal added.");
-            }
-
-            else if (choice == 5) {
+            } else if (choice == 5) {
                 System.out.print("Account name: ");
                 String name = scanner.nextLine().trim();
                 System.out.print("Address: ");
@@ -351,13 +325,9 @@ public class Main {
                 payment.PaymentMethod pm = new payment.BankTransfer(accountNo, address, name, routingNo);
                 client.addPaymentMethod(pm);
                 System.out.println("Bank transfer added.");
-            }
-
-            else if (choice == 6) {
+            } else if (choice == 6) {
                 return;
-            }
-
-            else {
+            } else {
                 System.out.println("Invalid choice.");
             }
         }
@@ -403,10 +373,14 @@ public class Main {
         payment.PaymentStrategy strategy = null;
 
         switch (methodChoice) {
-            case 1 -> strategy = new payment.CreditCardStrategy((payment.CreditCard) pm);
-            case 2 -> strategy = new payment.DebitCardStrategy((payment.DebitCard) pm);
-            case 3 -> strategy = new payment.PayPalStrategy((payment.PayPal) pm);
-            case 4 -> strategy = new payment.BankTransferStrategy((payment.BankTransfer) pm);
+            case 1 ->
+                strategy = new payment.CreditCardStrategy((payment.CreditCard) pm);
+            case 2 ->
+                strategy = new payment.DebitCardStrategy((payment.DebitCard) pm);
+            case 3 ->
+                strategy = new payment.PayPalStrategy((payment.PayPal) pm);
+            case 4 ->
+                strategy = new payment.BankTransferStrategy((payment.BankTransfer) pm);
             default -> {
                 System.out.println("Invalid choice.");
                 return;
@@ -435,87 +409,87 @@ public class Main {
         // booking.processPayment();
         client.addPayment(payment);
         System.out.println("Payment processed for booking: " + booking.getBookingID());
-        
+
     }
 
     private static payment.PaymentMethod choosePaymentMethod(Scanner scanner, Users.Client client) {
-    System.out.println("\nChoose payment method to use/add:");
-    System.out.println("1) Credit Card");
-    System.out.println("2) Debit Card");
-    System.out.println("3) PayPal");
-    System.out.println("4) Bank Transfer");
-    System.out.print("Choice: ");
+        System.out.println("\nChoose payment method to use/add:");
+        System.out.println("1) Credit Card");
+        System.out.println("2) Debit Card");
+        System.out.println("3) PayPal");
+        System.out.println("4) Bank Transfer");
+        System.out.print("Choice: ");
 
-    int methodChoice = readInt(scanner);   // use your existing readInt
+        int methodChoice = readInt(scanner);   // use your existing readInt
 
-    // Create + return the correct subclass (so your casts work)
-    switch (methodChoice) {
-        case 1 -> {
-            System.out.print("Card number: ");
-            String cardNo = scanner.nextLine().trim();
-            System.out.print("Card holder name: ");
-            String holder = scanner.nextLine().trim();
-            System.out.print("Expiry (MM/YY): ");
-            String exp = scanner.nextLine().trim();
-            System.out.print("CVV: ");
-            String cvv = scanner.nextLine().trim();
-            
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
-                
-            YearMonth expiryDate;
-            expiryDate = YearMonth.parse(exp, formatter);
+        // Create + return the correct subclass (so your casts work)
+        switch (methodChoice) {
+            case 1 -> {
+                System.out.print("Card number: ");
+                String cardNo = scanner.nextLine().trim();
+                System.out.print("Card holder name: ");
+                String holder = scanner.nextLine().trim();
+                System.out.print("Expiry (MM/YY): ");
+                String exp = scanner.nextLine().trim();
+                System.out.print("CVV: ");
+                String cvv = scanner.nextLine().trim();
 
-            payment.CreditCard cc = new payment.CreditCard(cardNo, holder, expiryDate, cvv);
-            client.addPaymentMethod(cc);
-            return cc;
-        }
-        case 2 -> {
-            System.out.print("Card number: ");
-            String cardNo = scanner.nextLine().trim();
-            System.out.print("Card holder name: ");
-            String holder = scanner.nextLine().trim();
-            System.out.print("Expiry (MM/YY): ");
-            String exp = scanner.nextLine().trim();
-            System.out.print("CVV: ");
-            String cvv = scanner.nextLine().trim();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
-                
-            YearMonth expiryDate;
-            expiryDate = YearMonth.parse(exp, formatter);
+                YearMonth expiryDate;
+                expiryDate = YearMonth.parse(exp, formatter);
 
-            payment.DebitCard dc = new payment.DebitCard(cardNo, holder, expiryDate, cvv);
-            client.addPaymentMethod(dc);
-            return dc;
-        }
-        case 3 -> {
-            System.out.print("PayPal email: ");
-            String email = scanner.nextLine().trim();
+                //payment.CreditCard cc = new payment.CreditCard(cardNo, holder, expiryDate, cvv);
+                client.addPaymentMethod("CREDIT", cardNo, expiryDate, cvv, holder);
+                return client.getPaymentMethods().get(0);
+            }
+            case 2 -> {
+                System.out.print("Card number: ");
+                String cardNo = scanner.nextLine().trim();
+                System.out.print("Card holder name: ");
+                String holder = scanner.nextLine().trim();
+                System.out.print("Expiry (MM/YY): ");
+                String exp = scanner.nextLine().trim();
+                System.out.print("CVV: ");
+                String cvv = scanner.nextLine().trim();
 
-            payment.PayPal pp = new payment.PayPal(email);
-            client.addPaymentMethod(pp);
-            return pp;
-        }
-        case 4 -> {
-            System.out.print("Account name: ");
-            String name = scanner.nextLine().trim();
-            System.out.print("Address: ");
-            String addr = scanner.nextLine().trim();
-            System.out.print("Account number: ");
-            String acct = scanner.nextLine().trim();
-            System.out.print("Routing number: ");
-            String routing = scanner.nextLine().trim();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
 
-            payment.BankTransfer bt = new payment.BankTransfer(acct, addr, name , routing);
-            client.addPaymentMethod(bt);
-            return bt;
-        }
-        default -> {
-            System.out.println("Invalid choice.");
-            return null;
+                YearMonth expiryDate;
+                expiryDate = YearMonth.parse(exp, formatter);
+
+                //payment.DebitCard dc = new payment.DebitCard(cardNo, holder, expiryDate, cvv);
+                client.addPaymentMethod("DEBIT", cardNo, expiryDate, cvv, holder);
+                return client.getPaymentMethods().get(0);
+            }
+            case 3 -> {
+                System.out.print("PayPal email: ");
+                String email = scanner.nextLine().trim();
+
+                //payment.PayPal pp = new payment.PayPal(email);
+                client.addPaymentMethod(email);
+                return client.getPaymentMethods().get(0);
+            }
+            case 4 -> {
+                System.out.print("Account name: ");
+                String name = scanner.nextLine().trim();
+                System.out.print("Address: ");
+                String addr = scanner.nextLine().trim();
+                System.out.print("Account number: ");
+                String acct = scanner.nextLine().trim();
+                System.out.print("Routing number: ");
+                String routing = scanner.nextLine().trim();
+
+                //payment.BankTransfer bt = new payment.BankTransfer(acct, addr, name , routing);
+                client.addPaymentMethod(acct, addr, name, routing);
+                return client.getPaymentMethods().get(0);
+            }
+            default -> {
+                System.out.println("Invalid choice.");
+                return null;
+            }
         }
     }
-}
 
     // =========================================================
     // Consultant Menu (still placeholder)
@@ -621,10 +595,8 @@ public class Main {
 //         services.add(new Service("Consulting", "Intro session", 100.0));
 //         services.add(new Service("Resume Review", "30-min review", 60.0));
 //         services.add(new Service("Mock Interview", "45-min interview", 120.0));
-
 //         System.out.println("Welcome to the Consultancy System");
 //         System.out.println("1. Login\n2. Exit");
-        
 //         int choice = scanner.nextInt();
 //         scanner.nextLine(); // Consume newline
 //         while(true){
@@ -689,23 +661,19 @@ public class Main {
 //         }
 //         // // 1. Create a Registry to hold our users
 //         // UserRegistry registry = new UserRegistry();
-
 //         // // 2. Pre-load ("Seed") the users
 //         // // These will automatically get IDs: CL-1, CO-1, and AD-1
 //         // Client defaultClient = new Client("John Doe", "john@email.com", "555-0001");
 //         // Consultant defaultConsultant = new Consultant("Jane Smith", "jane@email.com", "555-0002");
 //         // Admin defaultAdmin = new Admin("System Admin", "admin@firm.com", "555-9999");
-
 //         // // 3. Add them to the registry
 //         // registry.addUser(defaultClient);
 //         // registry.addUser(defaultConsultant);
 //         // registry.addUser(defaultAdmin);
-
 //         // // 4. Start the CLI and pass it the registry so it can "find" these users
 //         // ConsultancyApp app = new ConsultancyApp();
 //         // app.start();
 //     }
-    
 //     public static void browseServices(List<Service> services) {
 //         // Logic to display services
 //         System.out.println("\n--- Services ---");
@@ -714,7 +682,6 @@ public class Main {
 //                 System.out.printf("%d) %s ($%.2f) - %s%n", i + 1, s.getName(), s.getPrice(), s.getDescription());
 //             }
 //     }
-
 //     public static void showClientMenu() {
 //         System.out.println("\n--- Client Menu ---");
 //         System.out.println("1. Browse Services\n2. View Booking History\n3. Manage Payment Methods\n4. Cancel Booking\n5. Request Booking\n6. Process Payment\n7. View Payment History\n8. Logout\n");
