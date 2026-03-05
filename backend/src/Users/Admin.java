@@ -4,8 +4,8 @@ public class Admin extends User {
     
     private static int idCounter = 1; 
 
-    public Admin(){
-        super(); 
+    public Admin(String name, String email, String phone) {
+        super(name, email, phone); 
         this.setRole("Admin");
         this.userId = "AD-" + idCounter;
         incrementCounter();
@@ -27,5 +27,6 @@ public class Admin extends User {
         return null;
     }
 
+    
     
 }
