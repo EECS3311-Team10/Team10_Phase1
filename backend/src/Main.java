@@ -1,7 +1,9 @@
 import Users.*;
-import java.time.LocalDateTime;
+
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import service.*;
+import java.time.*;
 
 // - Client has: requestBooking(Booking), cancelBooking(Booking), viewBookingHistory(), getPaymentMethods(), addPaymentMethod(...)
 // - Client has: processPayment(Payment, PaymentStrategy) and viewPaymentHistory()
@@ -295,7 +297,12 @@ public class Main {
                 System.out.print("CVV: ");
                 String cvv = scanner.nextLine().trim();
 
-                payment.PaymentMethod pm = new payment.DebitCard(cardNo, holder, exp, cvv);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
+                
+                YearMonth expiryDate;
+                expiryDate = YearMonth.parse(exp, formatter);
+              
+                payment.PaymentMethod pm = new payment.DebitCard(cardNo, holder, expiryDate, cvv);
                 client.addPaymentMethod(pm);
                 System.out.println("Debit card added.");
             }
@@ -310,7 +317,11 @@ public class Main {
                 System.out.print("CVV: ");
                 String cvv = scanner.nextLine().trim();
 
-                payment.PaymentMethod pm = new payment.CreditCard(cardNo, holder, exp, cvv);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
+                
+                YearMonth expiryDate;
+                expiryDate = YearMonth.parse(exp, formatter);
+                payment.PaymentMethod pm = new payment.CreditCard(cardNo, holder, expiryDate, cvv);
                 client.addPaymentMethod(pm);
                 System.out.println("Credit card added.");
             }
@@ -445,8 +456,13 @@ public class Main {
             String exp = scanner.nextLine().trim();
             System.out.print("CVV: ");
             String cvv = scanner.nextLine().trim();
+            
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
+                
+            YearMonth expiryDate;
+            expiryDate = YearMonth.parse(exp, formatter);
 
-            payment.CreditCard cc = new payment.CreditCard(cardNo, holder, exp, cvv);
+            payment.CreditCard cc = new payment.CreditCard(cardNo, holder, expiryDate, cvv);
             client.addPaymentMethod(cc);
             return cc;
         }
@@ -460,7 +476,12 @@ public class Main {
             System.out.print("CVV: ");
             String cvv = scanner.nextLine().trim();
 
-            payment.DebitCard dc = new payment.DebitCard(cardNo, holder, exp, cvv);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
+                
+            YearMonth expiryDate;
+            expiryDate = YearMonth.parse(exp, formatter);
+
+            payment.DebitCard dc = new payment.DebitCard(cardNo, holder, expiryDate, cvv);
             client.addPaymentMethod(dc);
             return dc;
         }

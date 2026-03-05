@@ -6,10 +6,10 @@ public class DebitCard extends PaymentMethod {
 
     private String cardNumber;
     private String cardHolderName;
-    private LocalDate expiryDate;
+    private YearMonth expiryDate;
     private String cvv;
 
-    public DebitCard(String cardNumber, String cardHolderName, LocalDate expiryDate, String cvv) {
+    public DebitCard(String cardNumber, String cardHolderName, YearMonth expiryDate, String cvv) {
         super("Debit Card");
         this.cardNumber = cardNumber;
         this.cardHolderName = cardHolderName;
@@ -28,7 +28,7 @@ public class DebitCard extends PaymentMethod {
             validated = false;
         }
         //verify expiryDate >> current date
-        if (expiryDate.isBefore(LocalDate.now())) {
+        if (expiryDate.isBefore(YearMonth.now())) {
             validated = false;
         }
 
