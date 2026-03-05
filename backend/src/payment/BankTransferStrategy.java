@@ -9,10 +9,9 @@ public class BankTransferStrategy implements PaymentStrategy {
     
     @Override
     public void pay() {
-        // Implement payment logic using bank transfer
         System.out.println("Processing payment through bank transfer...");
     }
-    
+
     @Override
     public PaymentMethod getPaymentMethod() {
         return bankTransfer;
