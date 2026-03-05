@@ -12,7 +12,7 @@ public class Consultant extends User{
   private ArrayList<Service> services;
 
   public Consultant(String name, String email, String phone) {
-    super(name, email, phone); 
+    super(name, email, phone, "Consultant"); 
     this.setRole("Consultant");
     this.bookings = new ArrayList<>();
     this.services = new ArrayList<>();
