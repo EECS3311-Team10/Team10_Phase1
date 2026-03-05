@@ -1,15 +1,11 @@
 package policy;
 
 import bookingstates.Booking;
-import service.Service;
 
 public class NoRefundPolicy implements RefundPolicy{
-	public double calculateRefund(Service service,Booking booking) {
+    // No refund policy: always returns 0, indicating that no refund will be given regardless of the booking details
+    @Override
+	public double calculateRefund(Booking booking) {
 		return 0;
 	}
-
-    @Override
-    public double calculateRefund(Booking booking) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 }
