@@ -1,4 +1,6 @@
-import java.util.Scanner;
+import java.util.*;
+import Users.*;
+import service.*;
 
 public class ConsultancyApp {
     private Scanner scanner = new Scanner(System.in);
@@ -25,24 +27,31 @@ public class ConsultancyApp {
             scanner.nextLine(); // Consume newline
             if(choice == 1) {
                 // Browse Services
+                System.out.println("Browsing Services...");
             }
             else if(choice == 2) {
                 // View Booking History
+                System.out.println("Viewing Booking History...");
             }
             else if(choice == 3) {
                 // Manage Payment Methods
+                System.out.println("Managing Payment Methods...");
             }
             else if(choice == 4) {
                 // Cancel Booking
+                System.out.println("Cancelling Booking...");
             }
             else if(choice == 5) {
                 // Request Booking
+                System.out.println("Requesting Booking...");
             }
             else if(choice == 6) {
                 // Process Payment
+                System.out.println("Processing Payment...");
             }
             else if(choice == 7) {
                 // View Payment History
+                System.out.println("Viewing Payment History...");
             }
             if(choice == 8) {
                 confirmLogout();
@@ -53,7 +62,14 @@ public class ConsultancyApp {
         }
     }
 
-
+    private void browseServices() {
+        // Logic to display services
+        System.out.println("\n--- Services ---");
+            for (int i = 0; i < services.size(); i++) {
+                Service s = services.get(i);
+                System.out.printf("%d) %s ($%.2f) - %s%n", i + 1, s.getName(), s.getBasePrice(), s.getDescription());
+            }
+    }
 
     private void handleLogin() {
         System.out.print("Enter your User ID (e.g., CL-1): ");
