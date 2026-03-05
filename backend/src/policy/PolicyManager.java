@@ -1,5 +1,5 @@
 package policy;
-
+// Singleton class to manage policies
 public class PolicyManager {
 	private static PolicyManager instancePolicyManager = new PolicyManager(); // Singleton instance
 	private CancellationPolicy cancellationPolicy;
