@@ -1,7 +1,7 @@
 package Users;
 import bookingstates.*;
-import service.Service;
 import java.util.*;
+import service.Service;
 
 public class Consultant extends User{
 
@@ -16,13 +16,9 @@ public class Consultant extends User{
     this.setRole("Consultant");
     this.bookings = new ArrayList<>();
     this.services = new ArrayList<>();
-    this.userId = "CO-" + idCounter;
-    incrementCounter();
+    this.userId = "CO-" + idCounter++;
   }
   
-  public static void incrementCounter(){
-        idCounter++;
-  }
   /* 
   public void manageAvailability(){
 
