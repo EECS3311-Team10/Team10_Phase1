@@ -23,5 +23,5 @@ Admin: AD-1 <br>
 Team member contributions <br>
 Use Case Diagram - Jingchun Ji, Aron Joseph, Khiem Nguyen <br>
 Class Diagram - Jingchun Ji, Aron Joseph, Khiem Nguyen <br>
-Backend - Jingchun Ji, Aron Joseph, Khiem Nguyen, Constantinos Giannaras <br>
+Backend - was working on vscode live share before upload to github - Jingchun Ji, Aron Joseph, Khiem Nguyen, Constantinos Giannaras <br>
 
