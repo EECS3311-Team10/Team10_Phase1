@@ -90,8 +90,4 @@ public class Consultant extends User {
         return isApproved;
     }
 
-    public void getServices() {
-
-    }
-
 }
