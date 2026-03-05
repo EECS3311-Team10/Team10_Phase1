@@ -1,7 +1,7 @@
 package payment;
 
 public class CreditCard extends PaymentMethod{
-    private int cardNumber;
+    private final int cardNumber;
     private String cardHolderName;
     private String expiryDate;
 
