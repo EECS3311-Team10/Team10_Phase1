@@ -2,7 +2,7 @@ package payment;
 
 public class BankTransfer extends PaymentMethod{
     private final String accountNumber;
-    private final String address;
+    private String address;
     private final String accountName;
     private final String routingNumber;
 
