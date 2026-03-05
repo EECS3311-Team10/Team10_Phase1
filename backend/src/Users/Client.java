@@ -44,17 +44,54 @@ public class Client extends User {
     }
 
     // methods for adding paymentMethods
-    // credit card
-    public boolean addPaymentMethod(String cardNumber, LocalDate expiryDate,
+    // credit card and debit card
+    public boolean addPaymentMethod(String paymentType, String cardNumber, YearMonth expiryDate,
             String cvv, String cardHolderName) {
-        CreditCard creditCard = new CreditCard(cardNumber, cardHolderName,
-                expiryDate, cvv);
-        if (!creditCard.validate()) {
+
+        if (paymentType.equals("CREDIT")) {
+            CreditCard creditCard = new CreditCard(cardNumber, cardHolderName,
+                    expiryDate, cvv);
+            if (!creditCard.validate()) {
+                return false;
+            }
+            paymentMethods.add(creditCard);
+            System.out.println("Your credit card payment method was added.");
+            // notification
+        } else if (paymentType.equals("DEBIT")) {
+            DebitCard debitCard = new DebitCard(cardNumber, cardHolderName,
+                    expiryDate, cvv);
+            if (!debitCard.validate()) {
+                return false;
+            }
+            paymentMethods.add(debitCard);
+            System.out.println("Your debit card payment method was added.");
+        }
+        return true;
+    }
+
+    // bank transfer
+    public boolean addPaymentMethod(String accountNumber, String address, String accountName, String routingNumber) {
+        BankTransfer bankTransfer = new BankTransfer(accountNumber, address, accountName, routingNumber);
+        if (!bankTransfer.validate()) {
             return false;
         }
-        paymentMethods.add(creditCard);
+        paymentMethods.add(bankTransfer);
         System.out.println("Your new payment method was added.");
         // notification
+        paymentMethods.add(bankTransfer);
+        System.out.println("Your bank account as a payment method has been added");
+
+        return true;
+    }
+
+    public boolean addPaymentMethod(String email) {
+        PayPal payPal = new PayPal(email);
+        if (!payPal.validate()) {
+            return false;
+        }
+        paymentMethods.add(payPal);
+        System.out.println("Your PayPal as a payment method has been added");
+
         return true;
     }
 
