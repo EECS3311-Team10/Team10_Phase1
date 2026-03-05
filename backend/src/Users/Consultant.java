@@ -89,9 +89,11 @@ public class Consultant extends User {
         return true;
     }
 
+    /* 
     public void blockTimeSlot() {
 
     }
+     */
 
     //should make a new class for registrations
     public void register() {
