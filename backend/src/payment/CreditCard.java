@@ -1,15 +1,17 @@
 package payment;
 
 public class CreditCard extends PaymentMethod{
-    private final int cardNumber;
+    private String cardNumber;
     private String cardHolderName;
     private String expiryDate;
+    private final String cvv;
 
-    public CreditCard(int cardNumber, String cardHolderName, String expiryDate) {
+    public CreditCard(String cardNumber, String cardHolderName, String expiryDate, String cvv) {
         super("Credit Card");
         this.cardNumber = cardNumber;
         this.cardHolderName = cardHolderName;
         this.expiryDate = expiryDate;
+        this.cvv = cvv;
     }
 
     @Override
