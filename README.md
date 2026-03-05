@@ -2,6 +2,9 @@
 
 Architecture overview <br>
 
+Language: Java (JDK 25) <br>
+Version Control: GitHub (with Team Branch Protection) <br>
+
 Design patterns used and where <br>
 
 Singleton - Policy Manager <br>
