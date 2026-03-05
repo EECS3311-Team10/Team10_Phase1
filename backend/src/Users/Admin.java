@@ -16,7 +16,8 @@ public class Admin extends User {
 
  
     public void defineSystemPolicies(){
-
+        //placeholder for defining system policies
+        System.out.println("System policies defined.");
     }
 
     public String generateReports(){
