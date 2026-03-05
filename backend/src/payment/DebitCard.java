@@ -1,10 +1,10 @@
 package payment;
 
 public class DebitCard extends PaymentMethod{
-    private String cardNumber;
+    private final String cardNumber;
     private String cardHolderName;
     private String expiryDate;
-    private String cvv;
+    private final String cvv;
 
     public DebitCard(String cardNumber, String cardHolderName, String expiryDate, String cvv) {
         super("Debit Card");
