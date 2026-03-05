@@ -18,7 +18,7 @@ public class DebitCardStrategy implements PaymentStrategy {
     
     @Override
     public PaymentMethod getPaymentMethod() {
-        return;
+        return null;
     }
     @Override
     public void simPaymentProcessing() {

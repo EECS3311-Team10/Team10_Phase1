@@ -17,7 +17,7 @@ public class PaypalStrategy implements PaymentStrategy {
 
     @Override
     public PaymentMethod getPaymentMethod() {
-        return ;
+        return null;
     }
 
     @Override
