@@ -22,5 +22,5 @@ Admin: AD-1 <br>
 Team member contributions <br>
 Use Case Diagram - Jingchun Ji, Aron Joseph, Khiem Nguyen <br>
 Class Diagram - Jingchun Ji, Aron Joseph, Khiem Nguyen <br>
-Backend Explaination - Jingchun Ji, Aron Joseph, Khiem Nguyen, Constantinos Giannaras <br>
+Backend - Jingchun Ji, Aron Joseph, Khiem Nguyen, Constantinos Giannaras <br>
 
