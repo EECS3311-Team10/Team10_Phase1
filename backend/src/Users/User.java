@@ -8,10 +8,11 @@ public abstract class User {
     private String phone;
     private String role;
     
-    protected User(String name, String email, String phone) {
+    protected User(String name, String email, String phone, String role) {
         this.name = name;
         this.email = email;
         this.phone = phone;
+        this.role = role;
     }
 
     public User() {
