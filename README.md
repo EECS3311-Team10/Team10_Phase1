@@ -19,9 +19,10 @@ Sample Users (Demo) <br>
 Client: CL-1 <br>
 Consultant: CO-1 <br>
 Admin: AD-1 <br>
+https://github.com/EECS3311-Team10/Team10_Phase1 <br>
 
 Team member contributions <br>
 Use Case Diagram - Jingchun Ji, Aron Joseph, Khiem Nguyen <br>
 Class Diagram - Jingchun Ji, Aron Joseph, Khiem Nguyen <br>
-Backend - was working on vscode live share before upload to github - Jingchun Ji, Aron Joseph, Khiem Nguyen, Constantinos Giannaras <br>
+Backend - Contributions from all members on LiveShare VSCode prior to GitHub integration  - Jingchun Ji, Aron Joseph, Khiem Nguyen, Constantinos Giannaras <br>
 
