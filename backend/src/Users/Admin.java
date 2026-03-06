@@ -20,10 +20,4 @@ public class Admin extends User {
         System.out.println("System policies defined.");
     }
 
-    public String generateReports(){
-        return null;
-    }
-
-    
-    
 }
