@@ -26,3 +26,13 @@ Use Case Diagram - Jingchun Ji, Aron Joseph, Khiem Nguyen <br>
 Class Diagram - Jingchun Ji, Aron Joseph, Khiem Nguyen <br>
 Backend - Contributions from all members on LiveShare VSCode prior to GitHub integration  - Jingchun Ji, Aron Joseph, Khiem Nguyen, Constantinos Giannaras <br>
 
+
+
+## Phase 2 Roadmap
+Building on the object-oriented design demonstrated in Phase 1, Phase 2 will deliver:
+- A web-based user interface replacing the CLI <br>
+- Enhanced input validation and comprehensive exception handling <br>
+- Integration of an AI Customer Assistant (chatbot) using safe, policy-grounded prompting <br>
+- Containerized deployment with Docker and docker-compose <br>
+
+
